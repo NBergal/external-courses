@@ -1,0 +1,30 @@
+body {
+    padding: 30px;
+}
+header {
+    background: lightblue;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+section {
+    background: lightgreen;
+    grid-column: 1;
+    grid-row: 2;
+}
+article {
+    background: white;
+    margin: 0 0 1rem 0;
+}
+aside {
+    background: pink;
+    grid-column: 2;
+    grid-row: 2;
+}
+header, article, section, .module {
+    padding: 1rem;
+}
+main {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: auto minmax(min-content, 1fr) auto;
+}

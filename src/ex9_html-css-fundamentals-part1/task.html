@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="./task.css" />
+        <title>ex9_html-css-fundamentals-part1</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <form action="mailto:nikitabergal@gmail.com" enctype="text/plain">
+                <fieldset>
+                    <legend>Form here</legend>
+                    <div class="warning-title">* required field</div>
+                    <hr>
+                    <div class="label-div">
+                        <span>Name:</span>
+                        <div class="input-field">
+                            <input type="text" name="userName" placeholder="placeholder text">
+                        </div>
+                    </div>
+                    <div class="label-div">
+                        <span>Email:</span>
+                        <div class="input-field">
+                            <input type="email" name="emailAddress" placeholder="placeholder text">
+                            <div class="warning-field">Form field hint</div>
+                        </div>
+                    </div>
+                    <div class="label-div">
+                        <span>Website:</span>
+                        <div class="input-field">
+                            <input type="url" name="website" placeholder="placeholder text">
+                            <div class="warning-field">Form field hint</div>
+                        </div>
+                    </div>
+                    <div class="label-div">
+                        <span>Message:</span>
+                        <div class="input-field">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>
