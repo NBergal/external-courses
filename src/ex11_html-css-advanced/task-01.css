@@ -1,0 +1,115 @@
+.wrap {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #e0d4ff;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border: 25px solid #000;
+    border-top: 25px solid #ffb545;
+    border-radius: 50%;
+    box-shadow: 0px 0px 4px 2px #000,
+        inset 0px 0px 10px 2px #000;
+    animation: spining 2s linear infinite;
+}
+@keyframes spining {
+    0% {
+        transform: rotate(0deg);
+        border-top: 25px solid #ff3636;
+    }
+    14% {
+        border-top: 25px solid #ffaf36;
+    }
+    28% {
+        border-top: 25px solid #fcff36;
+    }
+    42% {
+        border-top: 25px solid #51ff36;
+    }
+    56% {
+        border-top: 25px solid #36f8ff;
+    }
+    80% {
+        border-top: 25px solid #3636ff;
+    }
+    100% {
+        transform: rotate(360deg);
+        border-top: 25px solid #ff36eb;
+    }
+}
+.jumping-ball {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 200px;
+    height: 200px;
+}
+.jumping-ball__block {
+    width: 40px;
+    height: 80px;
+    background: #000;
+}
+.jumping-ball__ball {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #000;
+    animation: falling 1s ease-in infinite;
+}
+@keyframes falling {
+    0%, 100% {
+        top: 10px;
+        background: #ff7e29;
+    }
+    50% {
+        top: 160px;
+        background: #a229ff;
+    }
+}
+.infinite-animation {
+    width: 200px;
+}
+.infinite-animation > div {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(150deg, rgba(2, 0, 36, 1) 0%, rgba(9, 20, 121, 1) 35%, rgba(206, 0, 255, 1) 100%);
+    border-radius: 50%;
+    animation: infinity 6s infinite;
+}
+@keyframes infinity {
+    0% {
+        background: linear-gradient(150deg, rgba(2, 0, 36, 1) 0%, rgba(9, 20, 121, 1) 35%, rgba(206, 0, 255, 1) 100%);
+    }
+    14%, 70% {
+        border-radius: 0%;
+    }
+    28% {
+        background: linear-gradient(108deg, rgba(92, 0, 113, 1) 0%, rgba(9, 121, 13, 1) 35%, rgba(255, 0, 0, 1) 100%);
+    }
+    42% {
+        height: 160px;
+        width: 80px;
+        transform: skewx(10deg);
+    }
+    56% {
+        transform: rotate(58deg);
+    }
+    70% {
+        background: radial-gradient(circle, rgba(244, 255, 0, 1) 0%, rgba(67, 0, 247, 1) 65%, rgba(0, 0, 0, 1) 100%);
+    }
+    100% {
+        border-radius: 50%;
+    }
+}
