@@ -20,7 +20,7 @@ span {
     background: #CBCBCB;; 
     border-radius: 5px;
 }
-.button_list-item__inner, .button_new-list, .button_user-menu, .button_open-menu {
+.button_list-item__inner, .button_new-list, .button_user-menu, .button_open-menu, .menu-item__inner {
     line-height: 21px;
     border-radius: 5px;
     background: #fff;
@@ -54,7 +54,32 @@ span {
     justify-content: center;
     width: 24px;
     height: 24px;
+    border-radius: 50%;
     background: transparent;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.button_open-menu:hover {
+    background: #CBCBCB;
+}
+@keyframes arrowDown {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+}
+@keyframes arrowUp {
+    0% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+}
+.arrow-svg {
+    pointer-events: none;
 }
 .header, .footer {
     position: fixed;
@@ -68,6 +93,7 @@ span {
     background: #0067a3;
 }
 .header__logo, .header__menu {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,6 +122,27 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.user-menu_open {
+    position: absolute;
+    top: 55px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 282px;
+    color: #000;
+    background: #EBECF0;
+    border-radius: 10px;
+}
+.user-menu_open__inner {
+    padding: 10px;
+}
+.menu {
+    padding: 0px;
+    list-style-type: none;
+    margin: 0px;
 }
 .user-svg {
     display: flex;
@@ -171,12 +218,19 @@ span {
     padding-right: 12px;
     overflow-y: auto;
 }
-.button_list-item {
+.button_list-item, .menu-item {
     padding-bottom: 15px;
 }
-.button_list-item__inner {
+.menu-item:last-of-type {
+    padding-bottom: 0px;
+}
+.button_list-item__inner, .menu-item__inner {
     padding: 7px 8px;
     cursor: pointer;
+    transition: 0.2s;
+}
+.button_list-item__inner:hover, .menu-item__inner:hover {
+    background: #d8d8d8;
 }
 .list__footer {
     justify-content: center;
