@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="./task-02.css" />
+        <title>EX_11</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <form action="http://httpbin.org/post" method="POST">
+                <fieldset>
+                    <legend>New Post</legend>
+                    <div class="field">
+                        <input type="text" id="userTitle" name="userTitle" placeholder="Title" required>
+                        <label for="userTitle">Title</label>
+                    </div>
+                    <div class="field-group">
+                        <div class="field">
+                            <input type="text" id="userPrice" placeholder="Price" required />
+                            <label for="userPrice">Price</label>
+                        </div>
+                        <div class="field">
+                            <input type="text" id="userLocation" placeholder="Specific Location (optional)" required />
+                            <label for="userLocation">Specific Location (optional)</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <input type="text" id="userDescription" placeholder="Description" required />
+                        <label for="userDescription">Description</label>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
