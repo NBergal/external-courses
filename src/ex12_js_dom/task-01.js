@@ -1,31 +1,36 @@
 'use strict'
-let imageArray = [
+let images = [
     './assets/images/photo-1551829142-d9b8cf2c9232.jpg',
     './assets/images/photo-1522748906645-95d8adfd52c7.jpg',
     './assets/images/photo-1525230071276-4a87f42f469e.jpg',
 ];
 let sliderImage = document.getElementById('image-current');
-let currentImageIndex = imageArray.length;
+let currentImageIndex = images.length;
+let image = document.getElementsByClassName('image')[0];
 window.onload = function() {
-    sliderImage.innerHTML = `<img class='image' src=${imageArray[currentImageIndex - 1]} alt='current image'>`;
+    image.setAttribute('src', images[currentImageIndex - 1]);
 };
 function showNextImage() {
-    if (currentImageIndex < imageArray.length) {
+    if (currentImageIndex < images.length) {
         currentImageIndex++;
     } else {
         currentImageIndex = 1;
     }
-    sliderImage.innerHTML = `<img class='image image_next' src=${imageArray[currentImageIndex - 1]} alt='current image'>`;
+    image.setAttribute('src', images[currentImageIndex - 1]);
+    image.classList.add('image_next');
+    setTimeout(e=>{image.classList.remove('image_next');}, 600);
 }
 function showPreviousImage() {
-    if (currentImageIndex < imageArray.length + 1 && currentImageIndex > 1) {
+    if (currentImageIndex < images.length + 1 && currentImageIndex > 1) {
         currentImageIndex--;
     } else {
-        currentImageIndex = imageArray.length;
+        currentImageIndex = images.length;
     }
-    sliderImage.innerHTML = `<img class='image image_prev' src=${imageArray[currentImageIndex - 1]} alt='current image'>`;
+    image.setAttribute('src', images[currentImageIndex - 1]);
+    image.classList.add('image_prev');
+    setTimeout(e=>{image.classList.remove('image_prev');}, 600);
 }
 document.getElementsByClassName('button_prev')[0].addEventListener('mousedown', showPreviousImage);
 document.getElementsByClassName('button_prev')[0].removeEventListener('mouseup', showPreviousImage);
 document.getElementsByClassName('button_next')[0].addEventListener('mousedown', showNextImage);
-document.getElementsByClassName('button_prev')[0].removeEventListener('mouseup', showNextImage);
+document.getElementsByClassName('button_next')[0].removeEventListener('mouseup', showNextImage);
