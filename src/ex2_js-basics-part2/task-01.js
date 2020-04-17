@@ -1,12 +1,9 @@
 function printDataType(value) {
-    let typeOfValue = typeof value;
-    if (typeOfValue === "string") {
-        return typeOfValue;
+    if (typeof value === "string") {
+      return "string";
     }
-    else if (!isNaN(value)) {
-        if (typeOfValue === "number") {
-            return typeOfValue;
-        }
+    else if (typeof value === "number" && !isNaN(value)) {
+      return "number";
     }
     return undefined;
 }
