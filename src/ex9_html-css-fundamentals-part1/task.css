@@ -12,6 +12,7 @@ body * {
     height: 100%;
     left: 0px;
     top: 0px;
+    padding: 0px;
     justify-content: center;
     align-items: center;
 }
@@ -23,7 +24,7 @@ form {
     width: 600px;
     padding: 1rem;
 }
-fieldset {
+fieldset, .form__item {
     display: flex;
     border: 0px;
 }
@@ -39,24 +40,23 @@ legend {
 hr {
     border: 1px solid #000;
 }
-.label-div {
+label {
     display: flex;
     flex-wrap: wrap;
+    flex: 4;
+    max-width: 400px;
     font-weight: 100;
     font-size: 0.7rem;
     padding: 16px 10px;
 }
-.label-div>span, .label-div>.input-field {
+label>span {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex: 1 0 4%;
+    flex: 1;
+    max-width: 128px;
     margin: 2px 0px;
     font-size: 1.2em;
-}
-.label-div>.input-field {
-    align-items: center;
-    flex: 1 0 60%;
 }
 fieldset input, fieldset textarea,
 [type="submit"] {
@@ -64,13 +64,15 @@ fieldset input, fieldset textarea,
     border-radius: 4px;
     padding: 6px;
 }
-fieldset input {
-    width: 46%;
+input {
+    flex: 2;
+    margin: 2px 0px;
+    max-width: 200px;
 }
 textarea {
     padding: 4px;
     height: 80px;
-    width: 50%;
+    width: 60%;
 }
 [type="submit"] {
     font-weight: 900;
@@ -81,10 +83,16 @@ textarea {
 }
 .warning-field {
     position: relative;
-    background: #eb7a6c;
-    margin-left: 10%;
-    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    max-width: 130px;
+    height: 28px;
+    margin: auto;
+    padding: 0px 10px;
     text-align: center;
+    background: #eb7a6c;
     color: #fff;
 }
 .warning-field:after {

@@ -14,34 +14,34 @@
                     <legend>Form here</legend>
                     <div class="warning-title">* required field</div>
                     <hr>
-                    <div class="label-div">
-                        <span>Name:</span>
-                        <div class="input-field">
-                            <input type="text" name="userName" placeholder="placeholder text">
-                        </div>
+                    <div class="form__item">
+                        <label for="userName">
+                            <span>Name:</span>
+                            <input type="text" id="userName" name="userName" placeholder="placeholder text">
+                        </label>
                     </div>
-                    <div class="label-div">
-                        <span>Email:</span>
-                        <div class="input-field">
-                            <input type="email" name="emailAddress" placeholder="placeholder text">
-                            <div class="warning-field">Form field hint</div>
-                        </div>
+                    <div class="form__item">
+                        <label for="emailAddress">
+                            <span>Email:</span>
+                            <input type="email" id="emailAddress" name="emailAddress" placeholder="placeholder text">
+                        </label>
+                        <div class="warning-field">Form field hint</div>
                     </div>
-                    <div class="label-div">
-                        <span>Website:</span>
-                        <div class="input-field">
-                            <input type="url" name="website" placeholder="placeholder text">
-                            <div class="warning-field">Form field hint</div>
-                        </div>
+                    <div class="form__item">
+                        <label for="website">
+                            <span>Website:</span>
+                            <input type="url" id="website" name="website" placeholder="placeholder text">
+                        </label>
+                        <div class="warning-field">Form field hint</div>
                     </div>
-                    <div class="label-div">
-                        <span>Message:</span>
-                        <div class="input-field">
-                            <textarea></textarea>
-                        </div>
+                    <div class="form__item">
+                        <label for="userAbout">
+                            <span>Message:</span>
+                            <textarea id="userAbout" name="userAbout"></textarea>
+                        </label>
                     </div>
                 </fieldset>
-                <input type="submit" value="Submit">
+                <button type="submit" value="Submit">Submit</button>
             </form>
         </div>
     </body>

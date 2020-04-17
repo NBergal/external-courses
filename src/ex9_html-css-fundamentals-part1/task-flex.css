@@ -6,7 +6,7 @@ header {
 }
 section {
     background: lightgreen;
-    width: 75%;
+    flex: 7;
 }
 article {
     background: white;
@@ -14,7 +14,7 @@ article {
 }
 aside {
     background: pink;
-    width: 25%;
+    flex: 3;
 }
 header, article, section, .module {
     padding: 1rem;

@@ -9,11 +9,6 @@
     align-items: center;
     background: #ffbb80;
 }
-button {
-    background: none;
-    outline: none;
-    border: none;
-}
 .btn-content {
     width: 220px;
     height: 80px;
