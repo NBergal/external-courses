@@ -2,7 +2,7 @@
 html, body {
     overflow: hidden;
 }
-body {
+body, textarea {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: #fff;
@@ -13,6 +13,14 @@ span {
     width: 100%;
     text-align: center;
 }
+textarea {
+    width: 100%;
+    padding: 0px;
+    color: #000;
+    border: none;
+    outline: none;
+    resize: vertical;
+}
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -20,18 +28,32 @@ span {
     background: #CBCBCB;; 
     border-radius: 5px;
 }
-.button_list-item__inner, .button_new-list, .button_user-menu, .button_open-menu, .menu-item__inner {
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+    background: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    font: inherit;
+    cursor: pointer;
+}
+.button_list-item__inner, .button_new-list, .button_user-menu,
+.button_open-menu, .menu-item__inner, .dropdown__item__inner {
     line-height: 21px;
     border-radius: 5px;
     background: #fff;
     color: #000;
+    cursor: pointer;
 }
 .button_new-list {
     display: flex;
     width: 181px;
     height: 33px;
     padding: 0px;
-    cursor: pointer;
     transition: 0.2s;
 }
 .button_new-list:hover {
@@ -56,7 +78,6 @@ span {
     height: 24px;
     border-radius: 50%;
     background: transparent;
-    cursor: pointer;
     transition: 0.2s;
 }
 .button_open-menu:hover {
@@ -117,6 +138,7 @@ span {
 .add-svg {
     width: 22px;
     height: 22px;
+    pointer-events: none;
 }
 .user-menu {
     display: flex;
@@ -215,28 +237,40 @@ span {
 }
 .list__container {
     height: 100%;
+    width: calc(100% - 12px);
     padding-right: 12px;
     overflow-y: auto;
 }
-.button_list-item, .menu-item {
+.button_list-item, .menu-item, .dropdown__item {
     padding-bottom: 15px;
 }
 .menu-item:last-of-type {
     padding-bottom: 0px;
 }
-.button_list-item__inner, .menu-item__inner {
+.button_list-item__inner, .menu-item__inner, .dropdown__item__inner {
     padding: 7px 8px;
-    cursor: pointer;
     transition: 0.2s;
 }
-.button_list-item__inner:hover, .menu-item__inner:hover {
+.button_list-item__inner:hover, .menu-item__inner:hover, .dropdown__item__inner:hover {
     background: #d8d8d8;
+}
+.dropdown {
+    padding-bottom: 15px;
+}
+.dropdown__inner {
+    list-style-type: none;
+    margin: 0px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #CBCBCB;
+}
+.dropdown__item:last-of-type {
+    padding-bottom: 0px;
 }
 .list__footer {
     justify-content: center;
     color: #5E6C84;
     width: 100%;
-    cursor: pointer;
     transition: 0.2s;
 }
 .list__footer:hover {
