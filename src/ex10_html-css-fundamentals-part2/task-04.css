@@ -86,7 +86,7 @@ label {
     display: none;
     text-align: center;
     bottom: 150%;
-    left: -74px;
+    left: -80px;
     width: 227px;
     padding: 5px;
     background-color: #fff;
@@ -331,11 +331,12 @@ li a {
 .about__text {
     padding: 0 0.7%;
 }
-.about__text p:first-child {
+.about__text h6 {
     font-size: 2.1667em;
     font-weight: bold;
+    margin: 0px;
 }
-.about__text p:nth-child(2) {
+.about__text p {
     font-size: 1.3333em;
     text-align: justify;
 }
