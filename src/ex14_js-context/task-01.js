@@ -30,8 +30,7 @@ class Calculator {
       return this;
     }
     fetchData(callback){
-      this.result = 500;
-      setTimeout(callback, 1000, this.result);
+      setTimeout(callback, 1000, this.result = 500);
       return this;
     }
   }
