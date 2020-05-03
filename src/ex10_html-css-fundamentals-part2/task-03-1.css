@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+body {
+    font-size: 0.8rem;
+    font-family: 'Lato', sans-serif;
+    color: #55697d;
+}
+#wrap {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: #fffcfc;
+}
+.users-table {
+    width: 90%;
+    max-width: 800px;
+}
+.users-table td {
+    padding: 16px 10px;
+}
+.users-table td:first-child {
+    padding: 16px 10px;
+    text-transform: capitalize;
+}

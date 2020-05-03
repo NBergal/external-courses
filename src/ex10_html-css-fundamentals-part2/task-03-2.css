@@ -1,0 +1,17 @@
+.users-table tr {
+    background: #e3eaf3;
+    transition: 0.4s;
+}
+.users-table tr:nth-child(even) {
+    background: #f2f6fa;
+}
+.users-table tr:not(#header-row):hover {
+    background: #9bb0c4;
+    color: #fff;
+    transform: scale(1.08);
+}
+#header-row {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    height: 24px;
+}
