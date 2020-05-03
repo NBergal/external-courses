@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="./task.css" />
+        <title>ex9_html-css-fundamentals-part1</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <form action="mailto:nikitabergal@gmail.com" enctype="text/plain">
+                <fieldset>
+                    <legend>Form here</legend>
+                    <div class="warning-title">* required field</div>
+                    <hr>
+                    <div class="form__item">
+                        <label for="userName">
+                            <span>Name:</span>
+                            <input type="text" id="userName" name="userName" placeholder="placeholder text">
+                        </label>
+                    </div>
+                    <div class="form__item">
+                        <label for="emailAddress">
+                            <span>Email:</span>
+                            <input type="email" id="emailAddress" name="emailAddress" placeholder="placeholder text">
+                        </label>
+                        <div class="warning-field">Form field hint</div>
+                    </div>
+                    <div class="form__item">
+                        <label for="website">
+                            <span>Website:</span>
+                            <input type="url" id="website" name="website" placeholder="placeholder text">
+                        </label>
+                        <div class="warning-field">Form field hint</div>
+                    </div>
+                    <div class="form__item">
+                        <label for="userAbout">
+                            <span>Message:</span>
+                            <textarea id="userAbout" name="userAbout"></textarea>
+                        </label>
+                    </div>
+                </fieldset>
+                <button type="submit" value="Submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
