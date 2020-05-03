@@ -14,7 +14,7 @@ function myFetch(method, url, body = null) {
         xhr.onerror = function () {
             reject(xhr.response);
         };
-        xhr.send(JSON.stringify(body));
+        xhr.send();
     });
 }
 module.exports = new myFetch();
