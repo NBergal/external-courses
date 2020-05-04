@@ -101,12 +101,8 @@ function openUserMenu() {
         menuItemInner.innerText = menuItems[i];
     }
 }
-/////////////////////////////////////////////////////////////////////////////////////
-// 2 --- Функция
 function fillBoards(dataMock) {
     let board = document.getElementsByClassName('boards__inner')[0];
-
-    // 3 --- Считаю карты и для каждой выполняется следующее...
     for (let cardNumber = 0; cardNumber < dataMock.length; cardNumber++) {
         board.innerHTML += `
             <div class="list">
@@ -128,38 +124,29 @@ function fillBoards(dataMock) {
         `;
         let card = document.getElementsByClassName('list__container')[cardNumber];   
         let editable = '';
-
-        // 4 --- Если карта первая, то ее задачи можно изменять вводом
         if (cardNumber === 0) {
             editable = 'contenteditable';
         }
         let dataMockTitle = dataMock[cardNumber].title;
         let amountOfKeys = 0;
-
-        // 5 --- Если карта первая, то ее задачи можно изменять вводом
         for (let i = 0; i < localStorage.length; i++) {
-            // 6 --- Если строка в localStorage существует начинается также, как и 
-            // название карты, то считается количество ключей
             if(localStorage.key(i).startsWith(dataMockTitle)) {
                 amountOfKeys++;
             }
         }
-
-        
         let taskNumberEnd = dataMock[cardNumber].issues.length;
-        // 7 --- Если количество ключей localStorage не совпадает с dataMock
-        // то данные были изменены и именно столько задач должно быть отображено.
-        // иначе количество не изменится и выведуться данные из dataMock
-        if (taskNumberEnd !== amountOfKeys && amountOfKeys !== 0) {
-            taskNumberEnd = amountOfKeys;
+        if (amountOfKeys > 0) {
+            if (taskNumberEnd > amountOfKeys) {
+                taskNumberEnd += amountOfKeys;
+            }
+            else if (taskNumberEnd < amountOfKeys) {
+                taskNumberEnd += amountOfKeys - taskNumberEnd;
+            }
         }
         for (let taskNumber = 0; taskNumber < taskNumberEnd; taskNumber++) {
-            let taskText;
+            let taskText = window.localStorage.getItem(dataMock[cardNumber].title + ': ' + `task${taskNumber + 1}`);
             if (taskText !== window.localStorage.getItem(dataMock[cardNumber].title + ': ' + `task${taskNumber + 1}`) || taskText === null) {
                 taskText = dataMock[cardNumber].issues[taskNumber].name;
-            }
-            else {
-                taskText = window.localStorage.getItem(dataMock[cardNumber].title + ': ' + `task${taskNumber + 1}`);
             }
             card.innerHTML += `
                 <div class="button_list-item">
@@ -183,9 +170,7 @@ function fillBoards(dataMock) {
         `;
     }  
 }
-// заполнение выпадающего списка
 function fillDropdown(dataMock, targetCard, index) {
-    // 8 --- Заполнение выпадающего списка // НЕ РАБОТАЕТ
     let dropdown = document.createElement('div');
     dropdown.setAttribute('class', 'dropdown');
     targetCard.insertBefore(dropdown, targetCard.getElementsByClassName('list__footer')[0]);
@@ -193,32 +178,32 @@ function fillDropdown(dataMock, targetCard, index) {
         .appendChild(document.createElement('ul'))
         .setAttribute('class', 'dropdown__inner');
     for (let cardNumber = index - 1; cardNumber < index; cardNumber++) {
-        console.log('card' + cardNumber);
         let dataMockTitle = dataMock[cardNumber].title;
+        let amountOfKeys = 0;
         for (let i = 0; i < localStorage.length; i++) {
             if(localStorage.key(i).startsWith(dataMockTitle)) {
                 amountOfKeys++;
             }
         }
         let taskNumberEnd = dataMock[cardNumber].issues.length;
-        if (taskNumberEnd !== amountOfKeys && amountOfKeys !== 0) {
-            taskNumberEnd = taskNumberEnd + amountOfKeys;
+        if (taskNumberEnd > amountOfKeys && amountOfKeys > 0) {
+            taskNumberEnd += amountOfKeys;
         }
-        console.log(taskNumberEnd);
-        for (let taskNumber = 0; taskNumber < taskNumberEnd + 10; taskNumber++) {
-            if (window.localStorage.getItem(dataMock[cardNumber].title + ': ' + `task${taskNumber + 1}`) !== null) {
-                console.log(dataMock[cardNumber].title + ': ' + `task${taskNumber + 1}`);
-                let taskText;
-                targetCard.getElementsByClassName('dropdown__inner')[0]
-                    .appendChild(document.createElement('li'))
-                    .setAttribute('class', 'dropdown__item');
-                let dropdownTask = targetCard.getElementsByClassName('dropdown__item')[taskNumber]
-                    .appendChild(document.createElement('div'));
-                dropdownTask.setAttribute('class', 'dropdown__item__inner');
-                taskText = window.localStorage.getItem(dataMock[cardNumber].title + ': ' + `task${taskNumber + 1}`);
-                dropdownTask.innerText = taskText;
-                console.log(taskText + 'aaa');
+        if (taskNumberEnd < amountOfKeys && amountOfKeys > 0) {
+            taskNumberEnd += amountOfKeys - taskNumberEnd;
+        }
+        for (let taskNumber = 0; taskNumber < taskNumberEnd; taskNumber++) {
+            let taskText = window.localStorage.getItem(dataMock[cardNumber].title + ': ' + `task${taskNumber + 1}`);
+            if (taskText === null) {
+                taskText = dataMock[cardNumber].issues[taskNumber].name;
             }
+            targetCard.getElementsByClassName('dropdown__inner')[0]
+                .appendChild(document.createElement('li'))
+                .setAttribute('class', 'dropdown__item');
+            let dropdownTask = targetCard.getElementsByClassName('dropdown__item')[taskNumber]
+                .appendChild(document.createElement('div'));
+            dropdownTask.setAttribute('class', 'dropdown__item__inner');
+            dropdownTask.innerText = taskText.trim();
         }
     }
 }
@@ -229,21 +214,17 @@ window.addEventListener('click', function(openMenuEvent) {
         if (openedMenu) {
             openMenuButton.style.animation = "arrowUp 0.2s linear forwards";
             openedMenu.remove();
-        }
-        else {
+        } else {
             openMenuButton.style.animation = "arrowDown 0.2s linear forwards";
             openUserMenu();
         }
-    }
-    else {
+    } else {
         if (openedMenu) {
             openMenuButton.style.animation = "arrowUp 0.2s linear forwards";
             openedMenu.remove();
         }
     }
 });
-
-// --- клик на кнопку Add card
 window.addEventListener('click', function(selectTaskEvent) {
     let addTaskButton = document.getElementsByClassName('button_add-list-item');
     for (let i = 0; i < addTaskButton.length; i++) {
@@ -255,19 +236,16 @@ window.addEventListener('click', function(selectTaskEvent) {
                     .insertBefore(task.cloneNode(true), card.getElementsByClassName('list__footer')[0]);
                 let newTaskInner = newTask.getElementsByClassName('button_list-item__inner')[0];
                 newTaskInner.innerText = '';
-            }
-            else {
+            } else {
                 fillDropdown(dataMock, card, i);
             }
         }
     }
 });
-
-// --- клик на задачу в выпадающем списке, ее добавление и закрытие выпадающего списка
 window.addEventListener('click', function (addTaskEvent) {
     let dropdown = document.getElementsByClassName('dropdown')[0];
     if (dropdown) {
-        let card = dropdown.closest('.list__inner');
+        let card = dropdown.closest('.list');
         let cardInner = card.getElementsByClassName('list__container')[0];
         let task = cardInner.getElementsByClassName('button_list-item');
         let dropdownTask = cardInner.getElementsByClassName('dropdown__item__inner');
@@ -285,8 +263,6 @@ window.addEventListener('click', function (addTaskEvent) {
         }
     }
 });
-
-// --- данные сохраняются при изменении на первой карте
 document.addEventListener('click', function (blurTask) {
     let firstVard = document.getElementsByClassName('list__container')[0];
     let newTaskInner = firstVard.getElementsByClassName('button_list-item__inner');
@@ -296,11 +272,6 @@ document.addEventListener('click', function (blurTask) {
         }
     }
 });
-
-// 1 --- При загрузке скрипта выполняется функция
 window.onload = function () {
     fillBoards(dataMock);
 };
-
-// ---------------------------- BUGS ----------------------------
-// DISABLE TO CREATE NEW TASK WHEN CARD IS EMPTY
