@@ -92,8 +92,7 @@ function openUserMenu() {
         .appendChild(document.createElement('ul'))
         .setAttribute('class', 'menu');
     for (let i = 0; i < menuItems.length; i++) {
-        document.getElementsByClassName('menu')[0]
-            .appendChild(document.createElement('li'))
+        document.getElementsByClassName('menu')[0].appendChild(document.createElement('li'))
             .setAttribute('class', 'menu-item');
         let menuItemInner = document.createElement('div');
         menuItemInner.setAttribute('class', 'menu-item__inner');
