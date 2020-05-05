@@ -155,7 +155,7 @@ function fillBoards(dataMock) {
                 </div>
             `;
         }
-        card.innerHTML += `
+        card.innerHTML += ` 
             <div class="list__footer">
                 <button class="button_add-list-item">
                     <div class="add-svg">
