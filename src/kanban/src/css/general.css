@@ -40,3 +40,6 @@ button {
     font: inherit;
     cursor: pointer;
 }
+object {
+    pointer-events: none;
+}

@@ -4,10 +4,17 @@ import fillBoards from './js/fillBoards.js';
 import addTask from './js/addTask.js';
 import selectTask from './js/selectTask.js';
 import blurTask from './js/blurTask.js';
+import blurTitle from './js/blurTitle.js';
+import addCard from './js/addCard.js';
+import openMore from './js/openMore.js';
+import {timerId} from './js/sumTask.js';
 window.addEventListener('click', openUserMenuEvent);
 window.addEventListener('click', selectTask);
 window.addEventListener('click', addTask);
 window.addEventListener('click', blurTask);
-window.onload = function (){
+window.addEventListener('click', blurTitle);
+window.addEventListener('click', addCard);
+window.addEventListener('click', openMore);
+window.onload = function() {
     fillBoards(dataMock);
 };

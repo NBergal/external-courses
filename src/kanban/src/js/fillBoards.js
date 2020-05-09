@@ -6,7 +6,7 @@ export default function fillBoards(dataMock) {
                 <div class="list__inner">
                     <div class="list__header">
                         <span>${dataMock[cardNumber].title}</span>
-                        <div class="more">
+                        <div class="button_more">
                             <div class="more-svg">
                                 <object type="image/svg+xml" data="src/images/container/more.svg">
                                     <img src="src/images/container/more.png" alt="more">
